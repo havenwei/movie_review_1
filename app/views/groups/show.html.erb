@@ -18,10 +18,15 @@
     <% end %>
   </div>
 
-  <h2 class="text-center"><%= @group.title %></h2>
-  <div class="col-md-4 col-md-offset-4">
-  <p><%= @group.description %></p>
+  <div class="group">
+    <span class="pull-left">
+      <%= image_tag @group.image.url(:medium) %>
+    </span>
+
+    <h2><%= @group.title %></h2>
+    <p><%= @group.description %></p>
   </div>
+
 
   <table class="table">
     <thead>
