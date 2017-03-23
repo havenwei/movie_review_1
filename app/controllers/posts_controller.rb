@@ -3,7 +3,12 @@ class PostsController < ApplicationController
   before_action :find_post_and_check_permission, :only => [:edit, :update, :destroy]
   def new
     @group = Group.find(params[:group_id])
-    @post = Post.new
+    if current_user.is_member_of?(@group)
+      @post = Post.new
+    else
+      redirect_to group_path(@group)
+      flash[:warning] = "You have no permission,please join the group!"
+    end
   end
 
   def create
