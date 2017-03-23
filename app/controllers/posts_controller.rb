@@ -7,7 +7,7 @@ class PostsController < ApplicationController
       @post = Post.new
     else
       redirect_to group_path(@group)
-      flash[:warning] = "You have no permission,please join the group!"
+      flash[:warning] = "请收藏该电影，否则无法发表影评!"
     end
   end
 
