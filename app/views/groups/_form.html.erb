@@ -1,7 +1,13 @@
-<%= simple_form_for @group do |f| %>
+<%= simple_form_for @group, html: {multipart: true} do |f| %>
   <div class="form-group">
     <%= f.input :title, input_html:{class: "form-control"}%>
     <%= f.input :description, input_html:{class: "form-control"}%>
   </div>
+
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+  </div>  
+
   <%= f.submit "Submit", class: "btn btn-primary", data: {disable_with: "Submiting..."}  %>
 <% end %>
